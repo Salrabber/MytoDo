@@ -7,18 +7,19 @@ function useInputValue(defaultValue = "") {
       value,
       onChange: (event) => setValue(event.target.value),
     },
-    clear: () => setValue(''),
-    value: () => value(),
+    clear: () => setValue(""),
+    value: () => value,
   };
 }
 
 function AddTodo({ onCreate }) {
-  const input = useInputValue('');
+  const input = useInputValue("");
 
   function submitHandler(event) {
     event.preventDefault();
-    if (input.value.trim()) {
-      onCreate(input.value);
+
+    if (input.value().trim()) {
+      onCreate(input.value());
       input.clear()
     }
   }
