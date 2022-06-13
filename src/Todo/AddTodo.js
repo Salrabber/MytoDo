@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function useInputValue(defaultValue = "") {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(defaultValue);
   return {
     bind: {
       value,
@@ -13,12 +13,12 @@ function useInputValue(defaultValue = "") {
 }
 
 function AddTodo({ onCreate }) {
-  const input = useInputValue("");
+  const input = useInputValue('');
 
   function submitHandler(event) {
     event.preventDefault();
-    if (input.value().trim()) {
-      onCreate(input.value());
+    if (input.value.trim()) {
+      onCreate(input.value);
       input.clear()
     }
   }
