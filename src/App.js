@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import TodoList from "./Todo/TodoList";
 import Context from "./context";
 import Loader from "./loader";
+import Modal from "./Modal/Modal"
 
 const AddTodo = React.lazy(() => new Promise(resolve => {
   setTimeout(() => {
@@ -65,6 +66,7 @@ function App() {
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
         <h1>React tutor</h1>
+        <Modal />
         <React.Suspense fallback={<p>Ждем твою мамку . . . .</p>}>
           <AddTodo onCreate={addTodo} />
         </React.Suspense>
