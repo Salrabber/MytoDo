@@ -3,7 +3,11 @@ import TodoList from "./Todo/TodoList";
 import Context from "./context";
 import Loader from "./loader";
 
-const AddTodo = React.lazy(() => import("./Todo/AddTodo"));
+const AddTodo = React.lazy(() => new Promise(resolve => {
+  setTimeout(() => {
+    resolve(import('./Todo/AddTodo'))
+  }, 3000)
+}));
 
 function App() {
   let [todos, setTodos] = React.useState([]);
@@ -61,7 +65,7 @@ function App() {
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
         <h1>React tutor</h1>
-        <React.Suspense fallback={<p>Ждем твою мамку....</p>}>
+        <React.Suspense fallback={<p>Ждем твою мамку . . . .</p>}>
           <AddTodo onCreate={addTodo} />
         </React.Suspense>
 
