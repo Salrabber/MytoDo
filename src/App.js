@@ -67,7 +67,7 @@ function App() {
       <div className="wrapper">
         <h1>React tutor</h1>
         <Modal />
-        <React.Suspense fallback={<p>Ждем твою мамку . . . .</p>}>
+        <React.Suspense fallback={<p>Ждём твою мамку . . . .</p>}>
           <AddTodo onCreate={addTodo} />
         </React.Suspense>
 
