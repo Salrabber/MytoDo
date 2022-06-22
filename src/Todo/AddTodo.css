@@ -1,0 +1,28 @@
+
+.addTodoWrapper{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    margin-top: 1rem;
+    max-width: 600px;
+}
+
+
+.AddTodoInput{
+    /* display: block; */
+    /* border-radius: 4px; */
+    padding: 10px 0px 10px;
+    width: 480px;
+    vertical-align: middle;
+    font-size: 17px;
+    /* border: solid black; */
+}
+
+.AddTodoButton{
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 13px 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}

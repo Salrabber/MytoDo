@@ -4,6 +4,8 @@ import Context from "./context";
 import Loader from "./loader";
 import Modal from "./Modal/Modal"
 
+
+
 const AddTodo = React.lazy(() => new Promise(resolve => {
   setTimeout(() => {
     resolve(import('./Todo/AddTodo'))
@@ -66,6 +68,7 @@ function App() {
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
         <h1>React tutor</h1>
+        
         <Modal />
         <React.Suspense fallback={<p>Ждём твою мамку . . . .</p>}>
           <AddTodo onCreate={addTodo} />

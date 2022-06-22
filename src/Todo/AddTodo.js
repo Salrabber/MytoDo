@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./AddTodo.css";
+
 
 function useInputValue(defaultValue = "") {
   const [value, setValue] = useState(defaultValue);
@@ -20,14 +22,16 @@ function AddTodo({ onCreate }) {
 
     if (input.value().trim()) {
       onCreate(input.value());
-      input.clear()
+      input.clear();
     }
   }
 
   return (
     <form style={{ marginBottom: "1rem" }} onSubmit={submitHandler}>
-      <input {...input.bind} />
-      <button type="submit">Add todo</button>
+      <div className="addTodoWrapper" >
+        <input className="AddTodoInput" {...input.bind} />
+        <button className="AddTodoButton" type="submit">Add todo</button>
+      </div>
     </form>
   );
 }
