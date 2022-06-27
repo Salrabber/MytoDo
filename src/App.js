@@ -30,15 +30,6 @@ function App() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
-  //     .then((response) => response.json())
-  //     .then((todos) => {
-  //       setTimeout(() => {
-  //         setTodos(todos);
-  //       }, 2000);
-  //     });
-  // }, []);
 
   function toggleTodo(id) {
     setTodos(
@@ -53,6 +44,14 @@ function App() {
 
   function removeTodo(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
+  function filterUp(){
+    setTodos(
+      todos.sort((a, b) => {
+        return (a.title.lenght - b.title.lenght)
+      })
+    )
   }
 
   function addTodo(title) {

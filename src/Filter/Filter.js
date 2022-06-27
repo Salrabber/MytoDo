@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./Filter.css";
+import Context from "../context";
+
 
 function Filter() {
+    const {filterUp} = useContext(Context);
 
     function filter() {
         
