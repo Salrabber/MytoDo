@@ -46,13 +46,13 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
-  function filterUp(){
-    setTodos(
-      todos.sort((a, b) => {
-        return (a.title.lenght - b.title.lenght)
-      })
-    )
-  }
+  // function filterUp(){
+  //   setTodos(
+  //     todos.sort((a, b) => {
+  //       return (a.title.lenght - b.title.lenght)
+  //     })
+  //   )
+  // }
 
   function addTodo(title) {
     setTodos(
@@ -71,7 +71,7 @@ function App() {
       <div className="wrapper">
         <h1>React tutor</h1>
         <div className="buttonsWrapper">
-          <Filter />
+          <Filter todos={todos} />
           <Modal />
         </div>
         <React.Suspense fallback={<p>Ждём твою мамку . . . .</p>}>

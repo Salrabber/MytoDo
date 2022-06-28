@@ -3,15 +3,10 @@ import "./Filter.css";
 import Context from "../context";
 
 
-function Filter() {
-    const {filterUp} = useContext(Context);
-
-    function filter() {
-        
-    }
+function Filter({todos, FilterUp}) {
 
     return (
-        <button type="submit" onClick={filter}>Filter</button>
+        <button type="submit">Filter</button>
     )
 }
 
