@@ -3,8 +3,8 @@ import TodoList from "./Todo/TodoList";
 import Context from "./context";
 import Loader from "./loader";
 import Modal from "./Modal/Modal";
-import "./App.css"
-import Filter from "./Filter/Filter"
+import "./App.css";
+import Button from "./Filter/Button";
 
 const AddTodo = React.lazy(
   () =>
@@ -18,6 +18,7 @@ const AddTodo = React.lazy(
 function App() {
   let [todos, setTodos] = React.useState([]);
   let [loading, setLoading] = React.useState(true);
+  let [done, setDone] = React.useState(false);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
@@ -29,7 +30,6 @@ function App() {
         }, 2000);
       });
   }, []);
-
 
   function toggleTodo(id) {
     setTodos(
@@ -46,13 +46,20 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
-  function filterUp(){
+  function doneTodo() {
     setTodos(
       todos.map((todo) => {
-        todo.completed = true
-        return todo
+        if (done === false) {
+          todo.completed = true;
+        }
+        if (done === true) {
+          todo.completed = false;
+        }
+        return todo;
       })
-    )
+    );
+    if (done === false) {setDone(true)}
+    else setDone(false)
   }
 
   function addTodo(title) {
@@ -68,7 +75,7 @@ function App() {
   }
 
   function clearTodo() {
-    setTodos([])
+    setTodos([]);
   }
 
   return (
@@ -76,7 +83,8 @@ function App() {
       <div className="wrapper">
         <h1>React tutor</h1>
         <div className="buttonsWrapper">
-          <Filter filter={filterUp} />
+          <Button action={clearTodo} name='ClearButton' />
+          <Button action={doneTodo} name='DoneButton' />
           <Modal />
         </div>
         <React.Suspense fallback={<p>Ждём твою мамку . . . .</p>}>
