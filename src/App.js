@@ -47,6 +47,14 @@ function App() {
   }
 
   function doneTodo() {
+    if (todos.find((todo) => todo.completed === false)) {
+      setDone(false)
+      console.log("hui");
+    } else {
+      setDone(true)
+      console.log("pizda");
+    }
+
     setTodos(
       todos.map((todo) => {
         if (done === false) {
@@ -58,8 +66,9 @@ function App() {
         return todo;
       })
     );
-    if (done === false) {setDone(true)}
-    else setDone(false)
+    if (done === false) {
+      setDone(true);
+    } else setDone(false);
   }
 
   function addTodo(title) {
@@ -83,8 +92,8 @@ function App() {
       <div className="wrapper">
         <h1>React tutor</h1>
         <div className="buttonsWrapper">
-          <Button action={clearTodo} name='ClearButton' />
-          <Button action={doneTodo} name='DoneButton' />
+          <Button action={clearTodo} name="ClearButton" />
+          <Button action={doneTodo} name="DoneButton" />
           <Modal />
         </div>
         <React.Suspense fallback={<p>Ждём твою мамку . . . .</p>}>
