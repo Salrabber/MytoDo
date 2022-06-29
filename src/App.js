@@ -46,13 +46,14 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
-  // function filterUp(){
-  //   setTodos(
-  //     todos.sort((a, b) => {
-  //       return (a.title.lenght - b.title.lenght)
-  //     })
-  //   )
-  // }
+  function filterUp(){
+    setTodos(
+      todos.map((todo) => {
+        todo.completed = true
+        return todo
+      })
+    )
+  }
 
   function addTodo(title) {
     setTodos(
@@ -66,12 +67,16 @@ function App() {
     );
   }
 
+  function clearTodo() {
+    setTodos([])
+  }
+
   return (
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
         <h1>React tutor</h1>
         <div className="buttonsWrapper">
-          <Filter todos={todos} />
+          <Filter filter={filterUp} />
           <Modal />
         </div>
         <React.Suspense fallback={<p>Ждём твою мамку . . . .</p>}>
@@ -79,7 +84,6 @@ function App() {
         </React.Suspense>
 
         {loading && <Loader />}
-
         {todos.length ? (
           <TodoList todos={todos} onToggle={toggleTodo} />
         ) : loading ? null : (

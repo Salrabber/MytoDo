@@ -3,10 +3,10 @@ import "./Filter.css";
 import Context from "../context";
 
 
-function Filter({todos, FilterUp}) {
+function Filter(props) {
 
     return (
-        <button type="submit">Filter</button>
+        <button type="submit" onClick={() => props.filter()}>Filter</button>
     )
 }
 
