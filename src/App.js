@@ -48,27 +48,33 @@ function App() {
 
   function doneTodo() {
     if (todos.find((todo) => todo.completed === false)) {
-      setDone(false)
-      console.log("hui");
+      setDone(false);
+      console.log(done);
     } else {
-      setDone(true)
-      console.log("pizda");
+      setDone(true);
+      console.log(done);
     }
 
-    setTodos(
-      todos.map((todo) => {
-        if (done === false) {
-          todo.completed = true;
-        }
-        if (done === true) {
-          todo.completed = false;
-        }
-        return todo;
-      })
-    );
     if (done === false) {
-      setDone(true);
-    } else setDone(false);
+      setTodos(
+        todos.map((todo) => {
+          todo.completed = true;
+          return todo;
+        })
+      );
+    }
+
+    if (done === true) {
+      setTodos(
+        todos.map((todo) => {
+          todo.completed = false;
+          return todo;
+        })
+      );
+    }
+
+    setDone(!done)
+
   }
 
   function addTodo(title) {
