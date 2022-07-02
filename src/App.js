@@ -55,29 +55,20 @@ function App() {
       })
     ) {
       setDone(true);
-      console.log(done);
     } else {
       setDone(false);
-      console.log(done)
-    }
-    // console.log(done)
-    if (done === false) {
-      setTodos(
-        todos.map((todo) => {
-          todo.completed = true;
-          return todo;
-        })
-      );
     }
 
-    if (done === true) {
-      setTodos(
-        todos.map((todo) => {
+    setTodos(
+      todos.map((todo) => {
+        if (done === true){
           todo.completed = false;
-          return todo;
-        })
-      );
-    }
+        } else {
+          todo.completed = true;
+        }
+        return todo;
+      })
+    )
 
     setDone(!done);
   }
@@ -94,6 +85,10 @@ function App() {
     );
   }
 
+  function filterTodo(){
+
+  }
+
   function clearTodo() {
     setTodos([]);
   }
@@ -103,6 +98,7 @@ function App() {
       <div className="wrapper">
         <h1>React tutor</h1>
         <div className="buttonsWrapper">
+          <Button action={filterTodo} name="FilterButton" />
           <Button action={clearTodo} name="ClearButton" />
           <Button action={doneTodo} name="DoneButton" />
           <Modal />
