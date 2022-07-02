@@ -46,15 +46,21 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
+
+
   function doneTodo() {
-    if (todos.find((todo) => todo.completed === false)) {
-      setDone(false);
-      console.log(done);
-    } else {
+    if (
+      todos.every((todo) => {
+        return todo.completed === true;
+      })
+    ) {
       setDone(true);
       console.log(done);
+    } else {
+      setDone(false);
+      console.log(done)
     }
-
+    // console.log(done)
     if (done === false) {
       setTodos(
         todos.map((todo) => {
@@ -73,8 +79,7 @@ function App() {
       );
     }
 
-    setDone(!done)
-
+    setDone(!done);
   }
 
   function addTodo(title) {

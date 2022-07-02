@@ -14,6 +14,7 @@ root.render(
 const arr = [{id:true},{id:14},{id:false},{id:'pizda'}]
 const arg = [1,23,4]
 
+// if (arg.every(symb => {return symb > 30})) {console.log('da')} else {console.log('net')}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
