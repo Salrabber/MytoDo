@@ -42,3 +42,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.wrapper{
+  /* align-items: center; */
+}
+
+h1, p{
+  text-align: center;
+  font-weight: bold;
+}

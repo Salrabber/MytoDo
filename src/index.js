@@ -11,9 +11,9 @@ root.render(
   </React.StrictMode>
 );
 
-const arr = [{title:'one', id:1},{id:2, title:'twoo'},{id:3, title:'three'},{id:4, title:'foooour'}]
-const arg = [1,23,4,3,35,33]
-console.log(arr.sort((a,b) => {return a - b}))
+// const arr = [{id:3, title:'three'},{title:'one', id:1},{id:4, title:'foooour'},{id:2, title:'twoo'}]
+// const arg = [1,23,4,3,35,33]
+// console.log(arr.sort((a,b) => {return a.title.length - b.title.length}))
 
 // if (arg.every(symb => {return symb > 30})) {console.log('da')} else {console.log('net')}
 

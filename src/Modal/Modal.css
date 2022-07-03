@@ -1,4 +1,4 @@
-.modal{
+.modal {
     position: fixed;
     top: 0;
     right: 0;
@@ -10,10 +10,19 @@
     padding-top: 5rem;
 }
 
-.modal-body{
+.modal-body {
     padding: 2rem;
     width: 400px;
     border-radius: 5px;
     background: #fff;
     height: 200px;
+}
+
+.btn {
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: transparent;
+    padding: 13px 1rem;
+    font-weight: bold;
+    /* cursor: pointer; */
 }

@@ -46,8 +46,6 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
 
-
-
   function doneTodo() {
     if (
       todos.every((todo) => {
@@ -61,14 +59,14 @@ function App() {
 
     setTodos(
       todos.map((todo) => {
-        if (done === true){
+        if (done === true) {
           todo.completed = false;
         } else {
           todo.completed = true;
         }
         return todo;
       })
-    )
+    );
 
     setDone(!done);
   }
@@ -85,8 +83,21 @@ function App() {
     );
   }
 
-  function filterTodo(){
-
+  function filterTodo() {
+    
+    let arr = todos.map((el,i) => {
+      return {index: i, value: el.title}
+    })
+    arr.sort((a,b) => {
+      if (a.value.length > b.value.length){
+        return 1
+      }
+      if (a.value.length < b.value.length){
+        return -1
+      }
+      return 0
+    })
+    setTodos(arr.map(el => {return todos[el.index]}));
   }
 
   function clearTodo() {
@@ -96,14 +107,14 @@ function App() {
   return (
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
-        <h1>React tutor</h1>
+        <h1>React toDo</h1>
         <div className="buttonsWrapper">
           <Button action={filterTodo} name="FilterButton" />
           <Button action={clearTodo} name="ClearButton" />
           <Button action={doneTodo} name="DoneButton" />
           <Modal />
         </div>
-        <React.Suspense fallback={<p>Ждём твою мамку . . . .</p>}>
+        <React.Suspense fallback={<p>Loading...</p>}>
           <AddTodo onCreate={addTodo} />
         </React.Suspense>
 
@@ -111,7 +122,7 @@ function App() {
         {todos.length ? (
           <TodoList todos={todos} onToggle={toggleTodo} />
         ) : loading ? null : (
-          <p>Netu Nihuya</p>
+          <p>No toDos...</p>
         )}
       </div>
     </Context.Provider>

@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Button.css";
 
 
 function Button(props) {
 
     return (
-        <button type="submit" onClick={() => props.action()}>{props.name}</button>
+        <button className="btn" type="submit" onClick={() => props.action()}>{props.name}</button>
     )
 }
 
