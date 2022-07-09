@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/TodOleg/static/css/main.50e22372.css",
+    "main.js": "/TodOleg/static/js/main.413f70e5.js",
+    "static/css/489.637f7f5a.chunk.css": "/TodOleg/static/css/489.637f7f5a.chunk.css",
+    "static/js/489.ed8225d7.chunk.js": "/TodOleg/static/js/489.ed8225d7.chunk.js",
+    "index.html": "/TodOleg/index.html",
+    "main.50e22372.css.map": "/TodOleg/static/css/main.50e22372.css.map",
+    "main.413f70e5.js.map": "/TodOleg/static/js/main.413f70e5.js.map",
+    "489.637f7f5a.chunk.css.map": "/TodOleg/static/css/489.637f7f5a.chunk.css.map",
+    "489.ed8225d7.chunk.js.map": "/TodOleg/static/js/489.ed8225d7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50e22372.css",
+    "static/js/main.413f70e5.js"
+  ]
+}
